@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Arr;
+
 return [
 
     /*
@@ -11,7 +13,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Laravel-admin',
+    'name' => 'NIANWANG',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Laravel</b> admin',
+    'logo' => '<b>NIANWANG</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +36,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<b>La</b>',
+    'logo-mini' => '<b>NW</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +64,7 @@ return [
 
         'namespace' => 'App\\Admin\\Controllers',
 
-        'middleware' => ['web', 'admin'],
+        'middleware' => ['web', 'admin','admin.lock'],
     ],
 
     /*
@@ -275,7 +277,7 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-black',
+    'skin' => 'skin-green',
 
     /*
     |--------------------------------------------------------------------------
@@ -299,7 +301,7 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => 'https://img.zcool.cn/community/0135a75b552aa5a8012036be80cf41.jpg@1280w_1l_0o_100sh.jpg',
+    'login_background_image' => Arr::random(["https://i.loli.net/2019/04/23/5cbf1354a41b6.jpg", "https://i.loli.net/2019/04/23/5cbf136bdc2d3.jpg", "https://i.loli.net/2019/04/23/5cbf136fe0333.jpg", "https://i.loli.net/2019/04/23/5cbf137481842.jpg", "https://i.loli.net/2019/04/23/5cbf1379952b2.jpg", "https://i.loli.net/2019/04/23/5cbf13983c5ef.jpg", "https://i.loli.net/2019/04/23/5cbf139c68120.jpg", "https://i.loli.net/2019/04/23/5cbf13a0a95a2.jpg", "https://i.loli.net/2019/04/25/5cc08b39e2f20.jpg"]),
 
     /*
     |--------------------------------------------------------------------------
@@ -446,6 +448,21 @@ return [
                 'pasteImage' => true,//允许粘贴图片
                 'cleanPaste' => false,
             ]
+        ],
+        'material-ui' => [
+            // If the value is set to false, this extension will be disabled
+            'enable' => true
+        ],
+        'ueditor' => [
+
+            // 如果要关掉这个扩展，设置为false
+            'enable' => true,
+
+            // 编辑器的前端配置 参考：http://fex.baidu.com/ueditor/#start-config
+            'config' => [
+                'initialFrameHeight' => 400, // 例如初始化高度
+            ],
+            // 'field_type' => '自定义名字'
         ]
     ],
 ];

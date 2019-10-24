@@ -86,7 +86,8 @@ class BlogNavArticleController extends AdminController
         $form->text('article_title', '文章标题')->attribute('autocomplete', 'off')->required()->rules('required|max:100');
         $form->tags('article_tag', '文章标签')->help('建议使用标签总数量不超过6个')->attribute('autocomplete','off');
         $form->textarea('article_describe','文章简介');
-        $form->editormd('article_content', '文章内容')->required()->rules('required');
+//        $form->editormd('article_content', '文章内容')->required()->rules('required');
+        $form->UEditor('article_content', '文章内容')->required()->rules('required');
         $form->number('article_click', '点击量')->default(0)->rules('integer|between:0,999999');
         $form->number('article_sort', '文章排序')->default(100)->rules('integer|between:0,999999');
         $states = [

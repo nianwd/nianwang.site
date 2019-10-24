@@ -99,6 +99,13 @@
       <path value="$PROJECT_DIR$/vendor/laravel-admin-ext/config" />
       <path value="$PROJECT_DIR$/vendor/peinhu/aetherupload-laravel" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/jxlwqq/material-ui" />
+      <path value="$PROJECT_DIR$/vendor/codingyu/laravel-ueditor" />
+      <path value="$PROJECT_DIR$/vendor/codingyu/ueditor" />
+      <path value="$PROJECT_DIR$/vendor/laravel-admin-ext/lock-screen" />
+      <path value="$PROJECT_DIR$/vendor/qiniu/php-sdk" />
+      <path value="$PROJECT_DIR$/vendor/overtrue/laravel-filesystem-qiniu" />
+      <path value="$PROJECT_DIR$/vendor/overtrue/flysystem-qiniu" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

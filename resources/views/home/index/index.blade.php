@@ -55,12 +55,12 @@
     </div>
 </nav>
 <!-- 导航栏结束 -->
-<div class="page-header section-dark" style="background-image: url('{{__STATIC_HOME__}}/assets/img/trisomy.jpg')">
+<div class="page-header section-dark" id="bg" style="background-image: url('{{__STATIC_HOME__}}/assets/img/KcCLBO9aqTA2D5h.jpg');" >
     <div class="filter"></div>
     <div class="content-center">
         <div class="container">
             <div class="title-brand">
-                <h1 class="presentation-title">偶成</h1>
+                <h1 class="presentation-title">念忘</h1>
                 <div class="fog-low">
                     <img src="{{__STATIC_HOME__}}/assets/img/fog-low.png" alt="">
                 </div>
@@ -92,3 +92,31 @@
 
 
 </html>
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.17/jquery.backstretch.min.js"></script>
+<script>
+    function setTheme(t){
+        window.$("#bg").backstretch(t, {
+            duration: 1e4,
+            alignY: 0,
+            transition: "fade",
+            transitionDuration: 1e3
+        })
+    }
+    function switchTheme(){
+        $("#bg").backstretch("next");
+    }
+    $(function () {
+        var themes = {
+            touhou: ["https://i.loli.net/2019/09/28/qmth7xajngTM8zl.jpg", "https://i.loli.net/2019/09/29/pHk8d9JPeoR17ri.jpg", "https://i.loli.net/2019/09/29/KcCLBO9aqTA2D5h.jpg", "https://i.loli.net/2019/09/29/if3acdCxLVTM7Ws.jpg", "https://i.loli.net/2019/09/29/uhf6Y4rFmJPdo8p.jpg", "https://i.loli.net/2019/09/29/swpIntC2eT41xQK.jpg", "https://i.loli.net/2019/09/29/DSJYGIjOHZ4Prp9.jpg", "https://i.loli.net/2019/09/29/vr6mEQRWi3NHVyk.jpg", "https://i.loli.net/2019/09/29/yK8BsTzhqvwFxCd.jpg", "https://i.loli.net/2019/09/29/WpQ6SyrfVN48e3n.jpg"],
+            school: ["https://i.loli.net/2019/04/23/5cbf1354a41b6.jpg", "https://i.loli.net/2019/04/23/5cbf136bdc2d3.jpg", "https://i.loli.net/2019/04/23/5cbf136fe0333.jpg", "https://i.loli.net/2019/04/23/5cbf137481842.jpg", "https://i.loli.net/2019/04/23/5cbf1379952b2.jpg", "https://i.loli.net/2019/04/23/5cbf13983c5ef.jpg", "https://i.loli.net/2019/04/23/5cbf139c68120.jpg", "https://i.loli.net/2019/04/23/5cbf13a0a95a2.jpg", "https://i.loli.net/2019/04/25/5cc08b39e2f20.jpg"]
+        };
+
+        var tt = themes.touhou;
+        var ts = themes.school;
+        setTheme(ts);
+
+        $("#bg").click(function () {
+            switchTheme();
+        });
+    })
+</script>

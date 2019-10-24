@@ -30,7 +30,7 @@ class BlogNavArticleObserver
                 $tagModel->a_id = $a_id;
                 $tagModel->save();
             }
-            $email_list = BlogSubscribe::where('is_pass',2)->pluck('email');
+            $email_list = BlogSubscribe::query()->where('is_pass',2)->pluck('email');
             foreach ($email_list as $k => $v){
                 //调用队列
                 SendReminderEmail::dispatch($blogNavArticle,$v);
@@ -47,8 +47,7 @@ class BlogNavArticleObserver
     public function updated(BlogNavArticle $blogNavArticle)
     {
         $a_id = $blogNavArticle->getAttributeValue('id');
-        $tagModel = new BlogTag();
-        $tag_article = $tagModel::where('a_id','=',$a_id)->get();
+        $tag_article = BlogTag::query()->where('a_id',$a_id)->get();
         //现在的标签
         $origin_tag = $blogNavArticle->getAttributeValue('article_tag');
         $tag_new = empty($origin_tag) ? [] : explode(',',$origin_tag);
@@ -62,11 +61,10 @@ class BlogNavArticleObserver
         }
         $diff_tag = array_diff($tag_new,$tag_old);
         foreach ($diff_tag as $item) {
-            $tagModel = new BlogTag();
-            $tagModel->tag_content = $item;
-            $tagModel->tag_click = 0;
-            $tagModel->a_id = $a_id;
-            $tagModel->save();
+            BlogTag::query()->create([
+               "tag_content" => $item,
+               "a_id" => $a_id,
+            ]);
         }
     }
 

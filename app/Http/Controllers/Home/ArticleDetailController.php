@@ -5,8 +5,10 @@ namespace App\Http\Controllers\home;
 use App\Http\Requests\StoreArticleMsgPost;
 use App\Models\BlogMessage;
 use App\Models\BlogNavArticle;
+use App\Models\BlogTag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ArticleDetailController extends Controller
 {
@@ -35,7 +37,27 @@ class ArticleDetailController extends Controller
         //点击量自增
         $articleModel::where('id', $a_id)->increment('article_click');
 
-        return view('home.article_details.index', compact('article_result', 'article_url', 'badge_arr', 'previousPostID', 'nextPostID', 'article_message', 'bg_arr'));
+        //获取热门文章
+        $hot_article = $articleModel::where('article_show', 1)->orderBy('article_click', 'desc')->take(6)->get();
+
+        //星期数组
+        $week_list = array('星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
+
+        //标签云
+        $tag_result = BlogTag::query()->select(DB::raw('count(a_id) as article_count, FLOOR(0 + (RAND() * 6)) as tag_color,tag_content,sum(tag_click) as sum_click'))->groupBy('tag_content')->orderBy('sum_click','desc')->take(40)->get();
+        $tag_color  = define_badge_color();
+
+        //获取热门文章
+        $hot_article = $articleModel::query()->where('article_show', 1)->where('nav_id', $article_result->nav_id)->orderBy('article_click', 'desc')->take(6)->get();
+
+        //背景颜色
+        $background_color = array('blue', 'green', 'yellow', 'brown', 'purple', 'orange');
+        shuffle($background_color);
+        //按钮颜色
+        $button_color = array('btn-primary', 'btn-info', 'btn-success', 'btn-danger', 'btn-warning', 'btn-default');
+        shuffle($button_color);
+
+        return view('home.article_details.index', compact('button_color','hot_article','tag_result','tag_color','week_list','hot_article','article_result', 'article_url', 'badge_arr', 'previousPostID', 'nextPostID', 'article_message', 'bg_arr'));
     }
 
     /**

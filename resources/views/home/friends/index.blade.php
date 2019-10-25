@@ -67,9 +67,22 @@
         <div class="container">
             <div class="row">
                 @foreach($recommend_list as $vo)
-                    <div class="col-sm-2 mb-2">
-                        <a href="{{$vo->friends_link}}" class="btn btn-outline-default btn-round m-0" role="button" aria-disabled="true" style="width: 100%;" target="_blank"><i class="fas fa-battery-full"></i> {{$vo->friends_title}}</a>
+                    <div class="col-sm-3">
+                        <a href="{{$vo->friends_link}}">
+                        <div class="btn btn-primary">
+                            <div style="width: 25%;float: left;">
+                                <img src="./assets/img/qqhead.png" class="img-circle img-no-padding img-responsive m-0" alt="圆形图像">
+                            </div>
+                            <div style="width: 75%;float: left;text-align: left;">
+                                <p class="h5 pl-2">{{$vo->friends_title}}</p>
+                                <p class="h6 pl-2" style="height: 30px;">{{$vo->friends_describe}}</p>
+                            </div>
+                        </div>
+                        </a>
                     </div>
+                    {{--<div class="col-sm-2 mb-2">--}}
+                        {{--<a href="{{$vo->friends_link}}" class="btn btn-outline-default btn-round m-0" role="button" aria-disabled="true" style="width: 100%;" target="_blank"><i class="fas fa-battery-full"></i> {{$vo->friends_title}}</a>--}}
+                    {{--</div>--}}
                 @endforeach
             </div>
         </div>

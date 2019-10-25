@@ -12,9 +12,9 @@
         </div>
         <!--右侧边栏开始-->
         <div class="row">
-            <div class="col-sm-9" data-parallax="true" style="background-color: #f7f7f9">
+            <div class="col-sm-9" data-parallax="true">
                 <div class="row">
-                    <main class="col-sm-12 bd-content pb-4">
+                    <main class="col-sm-12 bd-content pb-4" style="overflow:auto;border: 1px solid #e3eaef;">
                         <h4 class="bd-title">{{$article_result->article_title}}</h4>
                         <blockquote class="blockquote text-right">
                             <p class="mb-0">最后更新时间：{{$article_result->updated_at}}</p>
@@ -28,9 +28,10 @@
                             @endforeach
                         </div>
                         <div class="col-sm-12 p-0">
-                            <div id="test-editor" data-toc="#toc">
-                                <textarea style="display:none;">{{$article_result->article_content}}</textarea>
-                            </div>
+                            <div>{!! $article_result->article_content !!}</div>
+                            {{--<div id="test-editor" data-toc="#toc">--}}
+                                {{--<textarea style="display:none;">{{$article_result->article_content}}</textarea>--}}
+                            {{--</div>--}}
                         </div>
                     </main>
                 </div>
@@ -46,10 +47,41 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 mr-auto ml-auto">
-                <div class="row">
-                    <div id="toc"></div>
+            <div class="col-sm-3 mr-auto ml-auto stats">
+                <div class="col-sm-12 p-0">
+                    <div class="sentence"><strong>每日一句</strong>
+                        <h2>{{date('Y年m月d日')}} {{$week_list[date('w')]}}</h2>
+                        <p id="hitokoto"></p>
+                    </div>
                 </div>
+                <hr>
+                <div class="col-sm-12 mt-2 p-0">
+                    <p class="h5">标签云</p>
+                    @foreach($tag_result as $v)
+                        <a href="javascript:void(0)" class="badge badge-{{$tag_color[$v->tag_color]}}  badge-pill" onclick="tag_article('{{$v->tag_content}}')">{{$v->tag_content}}({{$v->article_count}})</a>
+                    @endforeach
+                </div>
+                <hr>
+                <h5 class="title">
+                    热门文章
+                </h5>
+                <ul class="list-unstyled">
+                    @foreach($hot_article as $k => $v)
+                        <li>
+                            <h5>
+                                <a href="{{url('article_details',['id'=>$v->id])}}"
+                                   class="text-muted">{{$v->article_title}}</a>
+                            </h5>
+                            <a href="javascript:void(0);" class="btn btn-sm {{$button_color[$k]}} btn-link" onclick='addBookmark("{{url('article_details',['id'=>$v->id])}}")'>
+                                <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{$v->article_like}}
+                            </a>
+                            <a href="javascript:void(0);" class="btn btn-sm {{$button_color[$k]}} btn-link">
+                                <i class="fa fa-comments" aria-hidden="true"></i> {{$v->article_click}}
+                            </a>
+                            <hr>
+                        <li>
+                    @endforeach
+                </ul>
             </div>
         </div>
         <!--右侧边栏结束-->
@@ -170,6 +202,8 @@
             </div>
         </div>
     </div>
+    <!-- 一言插件 -->
+    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&v={{time()}}" defer></script>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {

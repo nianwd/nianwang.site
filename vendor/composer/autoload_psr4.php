@@ -63,6 +63,7 @@ return array(
     'Fideloper\\Proxy\\' => array($vendorDir . '/fideloper/proxy/src'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'Encore\\LargeFileUpload\\' => array($vendorDir . '/dianwoung/large-file-upload/src'),
+    'Encore\\Admin\\RedisManager\\' => array($vendorDir . '/laravel-admin-ext/redis-manager/src'),
     'Encore\\Admin\\LockScreen\\' => array($vendorDir . '/laravel-admin-ext/lock-screen/src'),
     'Encore\\Admin\\Config\\' => array($vendorDir . '/laravel-admin-ext/config/src'),
     'Encore\\Admin\\' => array($vendorDir . '/encore/laravel-admin/src'),

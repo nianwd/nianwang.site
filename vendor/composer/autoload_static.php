@@ -131,6 +131,7 @@ class ComposerStaticInit16f07a7956477f18b0ae5cb434a38c65
         'E' => 
         array (
             'Encore\\LargeFileUpload\\' => 23,
+            'Encore\\Admin\\RedisManager\\' => 26,
             'Encore\\Admin\\LockScreen\\' => 24,
             'Encore\\Admin\\Config\\' => 20,
             'Encore\\Admin\\' => 13,
@@ -395,6 +396,10 @@ class ComposerStaticInit16f07a7956477f18b0ae5cb434a38c65
         'Encore\\LargeFileUpload\\' => 
         array (
             0 => __DIR__ . '/..' . '/dianwoung/large-file-upload/src',
+        ),
+        'Encore\\Admin\\RedisManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src',
         ),
         'Encore\\Admin\\LockScreen\\' => 
         array (
@@ -1293,6 +1298,16 @@ class ComposerStaticInit16f07a7956477f18b0ae5cb434a38c65
         'Encore\\Admin\\Middleware\\Permission' => __DIR__ . '/..' . '/encore/laravel-admin/src/Middleware/Permission.php',
         'Encore\\Admin\\Middleware\\Pjax' => __DIR__ . '/..' . '/encore/laravel-admin/src/Middleware/Pjax.php',
         'Encore\\Admin\\Middleware\\Session' => __DIR__ . '/..' . '/encore/laravel-admin/src/Middleware/Session.php',
+        'Encore\\Admin\\RedisManager\\BootExtension' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/BootExtension.php',
+        'Encore\\Admin\\RedisManager\\DataType\\DataType' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/DataType/DataType.php',
+        'Encore\\Admin\\RedisManager\\DataType\\Hashes' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/DataType/Hashes.php',
+        'Encore\\Admin\\RedisManager\\DataType\\Lists' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/DataType/Lists.php',
+        'Encore\\Admin\\RedisManager\\DataType\\Sets' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/DataType/Sets.php',
+        'Encore\\Admin\\RedisManager\\DataType\\SortedSets' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/DataType/SortedSets.php',
+        'Encore\\Admin\\RedisManager\\DataType\\Strings' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/DataType/Strings.php',
+        'Encore\\Admin\\RedisManager\\RedisController' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/RedisController.php',
+        'Encore\\Admin\\RedisManager\\RedisManager' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/RedisManager.php',
+        'Encore\\Admin\\RedisManager\\RedisManagerServiceProvider' => __DIR__ . '/..' . '/laravel-admin-ext/redis-manager/src/RedisManagerServiceProvider.php',
         'Encore\\Admin\\Show' => __DIR__ . '/..' . '/encore/laravel-admin/src/Show.php',
         'Encore\\Admin\\Show\\AbstractField' => __DIR__ . '/..' . '/encore/laravel-admin/src/Show/AbstractField.php',
         'Encore\\Admin\\Show\\Divider' => __DIR__ . '/..' . '/encore/laravel-admin/src/Show/Divider.php',
